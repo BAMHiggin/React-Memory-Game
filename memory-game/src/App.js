@@ -1,28 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Component} from "react";
+import CardIndex from "./components/CruzCard/CardIndex";
+import HeaderIndex from "./components/Header/HeaderIndex";
+import WrapperIndex from "./components/Wrapper/WrapperIndex";
+
+import cruzs from "./components/cruzs.json";
+// import CruzCard from "./components/CruzCard/CardIndex";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+    state = {
+        cruzs
+    };
+
+    render() {
+        return (
+            //TODO: finish wrapper
+          <WrapperIndex> 
+            <HeaderIndex>List</HeaderIndex>
+            {this.state.cruzs.map(cruz => (
+              <CardIndex
+                id={cruz.id}
+                key={cruz.id}
+                image={cruz.image}
+              />
+            ))}
+          </WrapperIndex>
+        );
+      }
+
+} 
+
+
+// function App() {
+//     return <HeaderIndex />
+// }
 
 export default App;
