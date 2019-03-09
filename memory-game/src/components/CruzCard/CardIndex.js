@@ -1,14 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 import "./CardStyle.css";
 
-function CruzCard(props) {
-    return (
-        <div className="card">
-            <div className="img-container">
-                <img alt={props.name} src={props.image} />
+
+
+class CardIndex extends Component {
+    // add constructor to initiate state for component instance
+
+    // constructor(props) {
+    //     super(props);
+
+    // }
+
+    componentDidMount() {
+        // console.log(this.props);
+    }
+
+
+
+    render() {
+        return (
+            <div className="card" onClick={() => this.props.cardClick(this.props.id)}>
+
+                <div className="img-container">
+                    <img alt={this.props.name} src={this.props.image} 
+                    />
+                </div>
             </div>
-        </div>
-    )
+        );
+    }
+
 }
 
-export default CruzCard;
+
+// function App() {
+//     return <HeaderIndex />
+// }
+
+export default CardIndex;
