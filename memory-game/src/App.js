@@ -24,31 +24,36 @@ class App extends Component {
     }
 
     cardClick(id) {
-        let cruzs = this.state.cruzs;
-        const index = cruzs.findIndex((cruz) => cruz.id === id);
-        cruzs[index].wasClicked = true;
-        let cardClicked = cruzs[index].wasClicked = true;
-
-        if (!cardClicked) {
-            this.setState({ score: this.state.score + 1 })
+        let clickedCruzs = this.state.cruzs;
+        const index = clickedCruzs.findIndex((cruz) => cruz.id === id);
+        
+        if (clickedCruzs[index].wasClicked) {
+            this.setState({
+                cruzs: cruzs,
+                score: 0,
+            })
+            alert("Game Over")
+            return
         }
+        clickedCruzs[index].wasClicked = true; 
+
+        
+        this.setState({ 
+                score: this.state.score + 1, 
+                highScore: this.state.highScore +1, 
+                cruzs:clickedCruzs
+                // index: index.Math.floor((Math.random()) +1)
+            })
         console.log("clicked", id, index);
     }
 
+    shuffleCards() {
 
-
-
-
-    //use window location reload to reset game when losing, or when title is clicked
-
-
-    // shuffleCards();
-
-
+    }
+    
 
     render() {
         return (
-            //TODO: finish wrapper
             <WrapperIndex>
                 <div className="row">
                     <HeaderIndex
@@ -57,16 +62,16 @@ class App extends Component {
                     />
                 </div>
                 {/* <div className="row"> */}
-                {this.state.cruzs.map(cruz => (
-                    // <div className="col-md-3">
-                    <CardIndex
-                        id={cruz.id}
-                        key={cruz.id}
-                        image={cruz.image}
-                        cardClick={this.cardClick}
-                    />
-                    // </div>
-                ))}
+                    {this.state.cruzs.map(cruz => (
+                        // <div className="col-md-3">
+                            <CardIndex
+                                id={cruz.id}
+                                key={cruz.id}
+                                image={cruz.image}
+                                cardClick={this.cardClick}
+                            />
+                        // </div>
+                    ))}
                 {/* </div> */}
             </WrapperIndex>
         );
@@ -74,9 +79,5 @@ class App extends Component {
 
 }
 
-
-// function App() {
-//     return <HeaderIndex />
-// }
 
 export default App;

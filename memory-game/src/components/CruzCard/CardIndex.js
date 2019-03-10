@@ -8,6 +8,7 @@ class CardIndex extends Component {
 
     // constructor(props) {
     //     super(props);
+       
 
     // }
 
