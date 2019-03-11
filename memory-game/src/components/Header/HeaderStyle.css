@@ -1,9 +1,13 @@
 .title {
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-size: 3rem;
     /* text-decoration: underline; */
     color: #2A77AE;
     margin-bottom: 50px;
   }
+
+#scoreTitle {
+  text-align: right;
+}
   

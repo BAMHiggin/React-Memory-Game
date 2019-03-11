@@ -36,14 +36,22 @@ class App extends Component {
             return
         }
 
+        //updates high score in round with highest score overall
+        let newHighScore = this.state.highScore;
+
+        if (this.state.score + 1 > this.state.highScore) {
+            newHighScore = this.state.score + 1
+        }
+        
 
         clickedCruzs[index].wasClicked = true;
 
 
         this.setState({
             score: this.state.score + 1,
-            highScore: this.state.highScore + 1,
-            cruzs: this.shuffleCards(clickedCruzs)
+            highScore: newHighScore,
+            cruzs: this.shuffleCards(clickedCruzs),
+           
         })
         console.log("clicked", id, index);
     }
