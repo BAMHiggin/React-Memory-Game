@@ -8,7 +8,7 @@ class CardIndex extends Component {
 
     // constructor(props) {
     //     super(props);
-       
+
 
     // }
 
@@ -20,13 +20,20 @@ class CardIndex extends Component {
 
     render() {
         return (
-            <div className="card" onClick={() => this.props.cardClick(this.props.id)}>
+            // <div className="container">
+                <div className="row">
+                <div className="col-md-3 col-xl-3">
+                    <div className="card" onClick={() => this.props.cardClick(this.props.id)}>
 
-                <div className="img-container">
-                    <img alt={this.props.name} src={this.props.image} 
-                    />
+                        <div className="img-container">
+                            <img alt={this.props.name} src={this.props.image}
+
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
+         
         );
     }
 

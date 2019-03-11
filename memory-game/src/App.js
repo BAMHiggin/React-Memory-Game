@@ -4,7 +4,7 @@ import HeaderIndex from "./components/Header/HeaderIndex";
 import WrapperIndex from "./components/Wrapper/WrapperIndex";
 
 import cruzs from "./components/cruzs.json";
-// import CruzCard from "./components/CruzCard/CardIndex";
+
 
 class App extends Component {
     // add constructor to initiate state for component instance
@@ -42,7 +42,7 @@ class App extends Component {
         if (this.state.score + 1 > this.state.highScore) {
             newHighScore = this.state.score + 1
         }
-        
+
 
         clickedCruzs[index].wasClicked = true;
 
@@ -51,7 +51,7 @@ class App extends Component {
             score: this.state.score + 1,
             highScore: newHighScore,
             cruzs: this.shuffleCards(clickedCruzs),
-           
+
         })
         console.log("clicked", id, index);
     }
@@ -77,13 +77,12 @@ class App extends Component {
 
     render() {
         return (
-            <WrapperIndex>
-                <div className="row">
-                    <HeaderIndex
-                        score={this.state.score}
-                        highScore={this.state.highScore}
-                    />
-                </div>
+            <WrapperIndex
+                score={this.state.score}
+                highScore={this.state.highScore}>  
+
+                <HeaderIndex/>
+                {/* </div> */}
                 {/* <div className="row"> */}
                 {this.state.cruzs.map(cruz => (
                     // <div className="col-md-3">

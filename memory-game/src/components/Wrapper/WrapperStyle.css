@@ -1,6 +1,6 @@
 .wrapper {
     padding-top: 50px;
-    background: #ECEFF1;
+    background:white;
     height: 100%;
     display: flex;
     flex-flow: row wrap;
@@ -9,4 +9,35 @@
     align-content: flex-start;
     overflow: auto;
   }
-  
+
+  /* #scoreTitle {
+    text-align: right;
+    font-size: 3rem;
+    /* text-decoration: underline; */
+
+.navbar-brand{
+  text-align: left;
+}
+
+.display-5 {
+    width: 100%;  
+    text-align: left; 
+  }
+
+#scoreTitle{
+  text-align: right;
+}
+
+  .jumbotron{
+    text-align: center;
+    background-image: url("/images/pattern.jpg");
+    /* backgroundSize: cover; */
+    
+  }
+
+  /* .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+   */
