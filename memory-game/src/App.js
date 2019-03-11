@@ -26,31 +26,46 @@ class App extends Component {
     cardClick(id) {
         let clickedCruzs = this.state.cruzs;
         const index = clickedCruzs.findIndex((cruz) => cruz.id === id);
-        
+
         if (clickedCruzs[index].wasClicked) {
             this.setState({
-                cruzs: cruzs,
-                score: 0,
+                cruzs: this.resetWasClicked(cruzs),
+                score: 0
             })
             alert("Game Over")
             return
         }
-        clickedCruzs[index].wasClicked = true; 
 
-        
-        this.setState({ 
-                score: this.state.score + 1, 
-                highScore: this.state.highScore +1, 
-                cruzs:clickedCruzs
-                // index: index.Math.floor((Math.random()) +1)
-            })
+
+        clickedCruzs[index].wasClicked = true;
+
+
+        this.setState({
+            score: this.state.score + 1,
+            highScore: this.state.highScore + 1,
+            cruzs: this.shuffleCards(clickedCruzs)
+        })
         console.log("clicked", id, index);
     }
 
-    shuffleCards() {
+    shuffleCards(cruzs) {
+        for (var i = 0; i < cruzs.length - 1; i++) {
+            var j = i + Math.floor(Math.random() * (cruzs.length - i));
 
+            var temp = cruzs[j];
+            cruzs[j] = cruzs[i];
+            cruzs[i] = temp;
+        }
+        return cruzs;
     }
-    
+
+    resetWasClicked(cruzs) {
+        for (var i = 0; i < cruzs.length; i++) {
+            cruzs[i].wasClicked = false;
+        }
+        return cruzs;
+    }
+
 
     render() {
         return (
@@ -62,16 +77,16 @@ class App extends Component {
                     />
                 </div>
                 {/* <div className="row"> */}
-                    {this.state.cruzs.map(cruz => (
-                        // <div className="col-md-3">
-                            <CardIndex
-                                id={cruz.id}
-                                key={cruz.id}
-                                image={cruz.image}
-                                cardClick={this.cardClick}
-                            />
-                        // </div>
-                    ))}
+                {this.state.cruzs.map(cruz => (
+                    // <div className="col-md-3">
+                    <CardIndex
+                        id={cruz.id}
+                        key={cruz.id}
+                        image={cruz.image}
+                        cardClick={this.cardClick}
+                    />
+                    // </div>
+                ))}
                 {/* </div> */}
             </WrapperIndex>
         );

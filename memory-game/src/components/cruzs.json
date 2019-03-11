@@ -46,5 +46,29 @@
     "name": "Malone",
     "image": "./images/kevin.jpg",
     "wasClicked": false
+  },
+  {
+    "id": 9,
+    "name": "Maury",
+    "image": "./images/maury.jpg",
+    "wasClicked": false
+  },
+  {
+    "id": 10,
+    "name": "Moppet",
+    "image": "./images/moppet.jpg",
+    "wasClicked": false
+  },
+  {
+    "id": 11,
+    "name": "OldGuy",
+    "image": "./images/oldguy.jpg",
+    "wasClicked": false
+  },
+  {
+    "id": 12,
+    "name": "Zodiac",
+    "image": "./images/zodiac.jpg",
+    "wasClicked": false
   }
 ]
